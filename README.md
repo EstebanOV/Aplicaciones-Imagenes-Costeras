@@ -1,1 +1,1 @@
-# Aplicaciones-Imágenes-Costeras
+# Aplicaciones Imágenes Costeras
