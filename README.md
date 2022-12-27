@@ -21,3 +21,4 @@ nVid='DJI_0001.mov'
 fpsR=2
 DirOut='Outputs\1-Frames\'
 ```
+https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/4ff29137caa64a90c7f280860832616e9c5ef309/1-Rectificacion/A-VideoToImagen.m#L12
