@@ -32,15 +32,39 @@ Información de entrada:
 ### A-VideoToImagen.m
 Este script [A-VideoToImagen.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m "A-VideoToImagen.m") extrae los frames de un video a una razón de fps especificada. 
 
-Escribir el nombre del archivo (nVid) y el fps de extracción (fpsR) 
+Escribir el nombre del archivo `nVid` y el fps de extracción `fpsR` 
 
 ```matlab
 nVid = 'DJI_0001.mov'
 fpsR = 2
 ```
 
-Las imágenes se irán guardando en la carpeta Outputs\1-Frames\.
+Las imágenes se irán guardando en la carpeta `Outputs\1-Frames\`.
 
 Generalmente en estos estudios se considera una frecuencia de muestreo de 2 Hz.
 
 El video debe estar ubicado en la carpeta actual de matlab
+
+### B-UTMtoLocal.m
+Convierte las coordenadas de los puntos GCP de un sistema global (UTM) a un sistema local definido por el usuario.
+
+Ingrese nombre y coordenadas de los puntos con coordenadas conocidas en UTM. Ejemplo con 3 puntos (pueden ser más):
+
+```matlab
+GCP_UTM.Name(1,:) = "P1";
+GCP_UTM.Name(2,:) = "P2";
+GCP_UTM.Name(3,:) = "P3";
+GCP_UTM.CoordUTM(1,:) = [256888.121 6289629.746]';
+GCP_UTM.CoordUTM(2,:) = [256867.711 6289684.774]';
+GCP_UTM.CoordUTM(3,:) = [256904.663 6289669.813]';
+```
+Especifique origen del sistema de referencia local en UTM (punto de referencia).
+```matlab
+Re = [256884.448 6289741.483]';
+```
+Indique el ángulo de rotación (en grados) del sistema local con respecto al sistema de coordenadas UTM.
+
+```matlab
+theta =150;
+```
+Los puntos quedarán guardados en la carpeta `Outputs` con el nombre `refPOINT`
