@@ -41,4 +41,6 @@ fpsR = 2
 
 Las imágenes se irán guardando en la carpeta Outputs\1-Frames\.
 
-Obs: generalmente en estos estudios se considera una frecuencia de muestreo de 2 Hz.
+Generalmente en estos estudios se considera una frecuencia de muestreo de 2 Hz.
+
+El video debe estar ubicado en la carpeta actual de matlab
