@@ -32,9 +32,10 @@ Información de entrada:
 #### A-VideoToImagen.m
 Este script [A-VideoToImagen.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m "A-VideoToImagen.m") extrae los frames de un video a una razón de fps especificada. 
 
-Escribir el nombre del archivo y el fps de extracción (generalemente en estos estudios se considera una frecuencia de muestreo de 2 Hz):
+Escribir el nombre del archivo (nVid) y el fps de extracción (fpsR) 
 
 https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m#L11-L21
 
-Las imágenes se irán guardando en la carpeta ***Outputs\1-Frames\***
+Las imágenes se irán guardando en la carpeta ** *Outputs\1-Frames\* **.
 
+Obs: generalmente en estos estudios se considera una frecuencia de muestreo de 2 Hz.
