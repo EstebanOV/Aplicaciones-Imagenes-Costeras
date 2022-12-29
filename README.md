@@ -19,10 +19,22 @@ Estos scripts de matlab corresponden a una modificación y adaptación del paque
 
 Previo al proceso de la ortorectificación, se deben tener en cuenta algunas recomendaciones en la grabación de imágenes en terreno. En el siguiente archivo se resumen algunos puntos a tener en cuenta: 
 
-Guía de Pre-Rectificación
+[Guía de Pre-Rectificación](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/Guia%20Pre-Rectificacion.pdf "Guía de Pre-Rectificación")
 
-En el respositorio del CIRN puede encontrar una descripción más extensa.
+En el respositorio del CIRN se puede encontrar una descripción más extensa de los criterios a tener en cuenta en la grabación de imágenes.
 
 #### Inputs
+Información de entrada:
+- Archivo de video  (Tener clara la resolución, fps y duración)
+- Perfil de calibración del lente (LCP)
+- Puntos GCP
 
-https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/4ff29137caa64a90c7f280860832616e9c5ef309/1-Rectificacion/A-VideoToImagen.m#L12
+#### A-VideoToImagen.m
+Este script [A-VideoToImagen.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m "A-VideoToImagen.m") extrae los frames de un video a una razón de fps especificada. 
+
+Escribir el nombre del archivo y el fps de extracción (generalemente en estos estudios se considera una frecuencia de muestreo de 2 Hz):
+
+https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m#L11-L21
+
+Las imágenes se irán guardando en la carpeta ***Outputs\1-Frames\***
+
