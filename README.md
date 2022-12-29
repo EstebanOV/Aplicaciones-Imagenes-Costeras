@@ -23,18 +23,21 @@ Previo al proceso de la ortorectificación, se deben tener en cuenta algunas rec
 
 En el respositorio del CIRN se puede encontrar una descripción más extensa de los criterios a tener en cuenta en la grabación de imágenes.
 
-#### Inputs
+### Inputs
 Información de entrada:
 - Archivo de video  (Tener clara la resolución, fps y duración)
 - Perfil de calibración del lente (LCP)
 - Puntos GCP
 
-#### A-VideoToImagen.m
+### A-VideoToImagen.m
 Este script [A-VideoToImagen.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m "A-VideoToImagen.m") extrae los frames de un video a una razón de fps especificada. 
 
 Escribir el nombre del archivo (nVid) y el fps de extracción (fpsR) 
 
-https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/61438c70ad05e72d21f3ade8688130c404e66538/1-Rectificacion/A-VideoToImagen.m#L11-L21
+```matlab
+nVid = 'DJI_0001.mov'
+fpsR = 2
+```
 
 Las imágenes se irán guardando en la carpeta Outputs\1-Frames\.
 
