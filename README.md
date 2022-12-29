@@ -68,3 +68,34 @@ Indique el ángulo de rotación (en grados) del sistema local con respecto al si
 theta =150;
 ```
 Los puntos quedarán guardados en la carpeta `Outputs` con el nombre `refPOINT`
+
+### C-ConfguracionUAV.m
+El script [C-ConfiguracionUAV](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/07a42b5b102765b87e33f8f1ca37075fc3c22ecf/1-Rectificacion/C-ConfiguracionUAV.m "C-ConfiguracionUAV")  permite editar los valores de configuración del algoritmo de rectificación.
+
+[makeLCPP3.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/UAV-Processing-Toolbox-master/makeLCPP3.m "makeLCPP3.m"): Crea un perfil de calibración del lente
+
+[demoInstsFile.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/07a42b5b102765b87e33f8f1ca37075fc3c22ecf/1-Rectificacion/UAV-Processing-Toolbox-master/demoInstsFile.m "demoInstsFile.m"):  Crea instrumentos de pixeles (En este caso no se utiliza)
+
+[demoInputFile_12V1P1](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/Inputs/demoInputFile_12V1P1.m "demoInputFile_12V1P1"): Configuración valores de entrada del análsis principal.
+
+- **makeLCPP3.m**
+
+Modificar de acuerdo con los valores de la calibración del lente (parámetros intrínsecos). Puede modificar sólo un caso asegurandose que en el archivo de configuración [demoInputFile_12V1P1](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/Inputs/demoInputFile_12V1P1.m "demoInputFile_12V1P1") se indique el caso correcto (para este caso se usa 'Aerielle').
+
+```matlab
+lcp.NU = NU;
+lcp.NV = NV;
+lcp.c0U = 1957.13;       
+lcp.c0V = 1088.21;
+lcp.fx = 2298.59;        
+lcp.fy = 2310.87;
+lcp.d1 = -0.14185;  % radial distortion coefficients
+lcp.d2 =  0.11168;
+lcp.d3 = 0.0;
+lcp.t1 = 0.00369;   % tangential distortion coefficients
+lcp.t2 = 0.002314;
+lcp.r = 0:0.001:1.5;
+lcp = makeRadDist(lcp);
+lcp = makeTangDist(lcp);    % add tangential dist template
+```
+
