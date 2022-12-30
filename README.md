@@ -148,6 +148,7 @@ inputs.roll = 0 / 180*pi;
 | :------------------: |:------------|
 | gcpList |  Anotar el número de los puntos GCP que utilizará en el análisis, son los que se ven en el video |
 | nRefs |  Número de puntos virtuales que utilizará, son los que se distinguen fácilmente en la imagen. Pueden o no ser GCP. |
+
 Ejemplo:
 
 ```matlab
