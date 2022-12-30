@@ -99,3 +99,28 @@ lcp = makeRadDist(lcp);
 lcp = makeTangDist(lcp);    % add tangential dist template
 ```
 
+- **demoInputFile_12V1P1.m**
+
+Los principales valores que se deben modificar son los siguientes:
+
+Paths, names and time stamp info
+
+| Variable | Descripción  | 
+| :------------: |:------------|
+| stationStr      | ''Aerielle” (Relacionado con los parámetros intrínsecos y calibración de la cámara, revisar función makeLCPP3.m )   |
+| dateVect     | Fecha del primer frame  [aaaa mm dd hh mm ss]    | 
+| dt | Espaciamiento temporal. Si su frecuencia de muestreo es de 2 [Hz], no cambiar        |  
+| dateVect     | Fecha del primer frame  [aaaa mm dd hh mm ss]    | 
+
+Ejemplo:
+
+```matlab
+inputs.stationStr = 'Aerielle';  
+inputs.dateVect = [2018 11 12 13 08 43];       % date/time of first frame
+inputs.dt = 0.5/(24*3600);           % delta t (s) converted to datenums
+inputs.frameFn = 'demoClip';            % root of frame names
+inputs.gcpFn = ['.\Outputs\refPOINT.mat'];   % File that contains the names and locations of all the possible GCPs 
+inputs.instsFn = ['./UAV-Processing-Toolbox-master/demoInstsFile'];            % instrument m-file location
+```
+
+Geometry solution Inputs
