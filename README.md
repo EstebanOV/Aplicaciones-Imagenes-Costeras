@@ -138,6 +138,36 @@ Ejemplo:
 ```matlab
 inputs.knownFlags = [0 0 0 0 0 0];
 inputs.xyCam = [ -107.4604 265.6772];
-inputs.zCam = 80;                                     % based on last data run                
-inputs.azTilt = [95 60] / 180*pi;                % first guess
+inputs.zCam = 80;             % based on last data run                
+inputs.azTilt = [95 60] / 180*pi;          % first guess
 inputs.roll = 0 / 180*pi; 
+```
+**GCP Info**
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| gcpList |  Anotar el número de los puntos GCP que utilizará en el análisis, son los que se ven en el video |
+| nRefs |  Número de puntos virtuales que utilizará, son los que se distinguen fácilmente en la imagen. Pueden o no ser GCP. |
+Ejemplo:
+
+```matlab
+inputs.gcpList = [1 2 3];      % use these gcps for init beta soln
+inputs.nRefs = 3;                    % number of ref points for stabilization
+inputs.zRefs = 2;                    % assumed z level of ref points
+```
+
+**Processing Parameters**
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| rectxy |  Grilla de rectificación en X e Y, [xmin dx xmax ymin dy ymax] |
+| rectz |  Nivel vertical para la rectificación (Generalmente es el nivel medio del mar).|
+Ejemplo:
+
+```matlab
+inputs.doImageProducts = 1;                    % usually 1.
+inputs.showFoundRefPoints = 0;                 % to display ref points as check
+inputs.showInputImages = 1;                    % display each input image as it is processed
+inputs.rectxy = [-50 0.5 400 -300 0.5 300];     % rectification specs
+inputs.rectz = 0;                              % rectification z-level
+```
