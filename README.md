@@ -162,6 +162,7 @@ inputs.zRefs = 2;                    % assumed z level of ref points
 | :------------------: |:------------|
 | rectxy |  Grilla de rectificación en X e Y, [xmin dx xmax ymin dy ymax] |
 | rectz |  Nivel vertical para la rectificación (Generalmente es el nivel medio del mar).|
+
 Ejemplo:
 
 ```matlab
