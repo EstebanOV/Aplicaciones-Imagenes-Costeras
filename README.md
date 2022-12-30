@@ -103,7 +103,7 @@ lcp = makeTangDist(lcp);    % add tangential dist template
 
 Los principales valores que se deben modificar son los siguientes:
 
-Paths, names and time stamp info
+**Paths, names and time stamp info**
 
 | Variable | Descripción  | 
 | :------------: |:------------|
@@ -123,4 +123,21 @@ inputs.gcpFn = ['.\Outputs\refPOINT.mat'];   % File that contains the names and 
 inputs.instsFn = ['./UAV-Processing-Toolbox-master/demoInstsFile'];            % instrument m-file location
 ```
 
-Geometry solution Inputs
+**Geometry solution Inputs**
+
+Parametros extrínsecos de la cámara  $\rightarrow$  [xCam yCam zCam Azimuth Tilt Roll]
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| knownFlags  |  1  $\rightarrow$ si se conoce la variable |
+|       |  0 $\rightarrow$ si no se conoce la variable |
+| xyCam, zCamz azTilt, roll  |  si su valor es conocido se debe anotar, si no es conocido, este valor sirve como primer punto de iteración |
+
+Ejemplo:
+
+```matlab
+inputs.knownFlags = [0 0 0 0 0 0];
+inputs.xyCam = [ -107.4604 265.6772];
+inputs.zCam = 80;                                     % based on last data run                
+inputs.azTilt = [95 60] / 180*pi;                % first guess
+inputs.roll = 0 / 180*pi; 
