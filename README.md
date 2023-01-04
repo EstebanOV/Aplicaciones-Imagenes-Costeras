@@ -173,3 +173,16 @@ inputs.showInputImages = 1;                    % display each input image as it 
 inputs.rectxy = [-50 0.5 400 -300 0.5 300];     % rectification specs
 inputs.rectz = 0;                              % rectification z-level
 ```
+### D-RectImagenes-Part1.m
+
+Este script [D-RectImagenes-Part1.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c0ffd452c3347aa4881b4d49cdbdf69b210a4a16/1-Rectificacion/D-RectImagenes-Part1.m "D-RectImagenes-Part1.m") permite determinar los parámetros extrínsecos de la cámara con respecto al sistema de referencia local, para lo cual se utilizan los puntos GCP y su ubicación en la imagen.
+
+- Es recomendable ir ejecutando la lineas de código por sección, e ir comprobando que se van obteniendo los resultados esperados.
+
+Modifique el nombre del archivo de configuración de acuerdo con el nombre asignado:
+
+https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c0ffd452c3347aa4881b4d49cdbdf69b210a4a16/1-Rectificacion/D-RectImagenes-Part1.m#L14-L17
+
+Seleccione los GCP en la imagen. Es recomendable tener una foto de referencia que indique claramente donde está ubicado cada punto, tal como se muestra en la siguiente imagen:
+
+![](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/656d2c0b76168bf10eda1ac20f6b9256f4e42eed/1-Rectificacion/13v2.jpg)
