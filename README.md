@@ -68,3 +68,108 @@ Indique el ángulo de rotación (en grados) del sistema local con respecto al si
 theta =150;
 ```
 Los puntos quedarán guardados en la carpeta `Outputs` con el nombre `refPOINT`
+
+### C-ConfguracionUAV.m
+El script [C-ConfiguracionUAV](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/07a42b5b102765b87e33f8f1ca37075fc3c22ecf/1-Rectificacion/C-ConfiguracionUAV.m "C-ConfiguracionUAV")  permite editar los valores de configuración del algoritmo de rectificación.
+
+[makeLCPP3.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/UAV-Processing-Toolbox-master/makeLCPP3.m "makeLCPP3.m"): Crea un perfil de calibración del lente
+
+[demoInstsFile.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/07a42b5b102765b87e33f8f1ca37075fc3c22ecf/1-Rectificacion/UAV-Processing-Toolbox-master/demoInstsFile.m "demoInstsFile.m"):  Crea instrumentos de pixeles (En este caso no se utiliza)
+
+[demoInputFile_12V1P1](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/Inputs/demoInputFile_12V1P1.m "demoInputFile_12V1P1"): Configuración valores de entrada del análsis principal.
+
+- **makeLCPP3.m**
+
+Modificar de acuerdo con los valores de la calibración del lente (parámetros intrínsecos). Puede modificar sólo un caso asegurandose que en el archivo de configuración [demoInputFile_12V1P1](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/7f3cc3ac0d49cdd1d7c2e5dd888b9942fe669e1c/1-Rectificacion/Inputs/demoInputFile_12V1P1.m "demoInputFile_12V1P1") se indique el caso correcto (para este caso se usa 'Aerielle').
+
+```matlab
+lcp.NU = NU;
+lcp.NV = NV;
+lcp.c0U = 1957.13;       
+lcp.c0V = 1088.21;
+lcp.fx = 2298.59;        
+lcp.fy = 2310.87;
+lcp.d1 = -0.14185;  % radial distortion coefficients
+lcp.d2 =  0.11168;
+lcp.d3 = 0.0;
+lcp.t1 = 0.00369;   % tangential distortion coefficients
+lcp.t2 = 0.002314;
+lcp.r = 0:0.001:1.5;
+lcp = makeRadDist(lcp);
+lcp = makeTangDist(lcp);    % add tangential dist template
+```
+
+- **demoInputFile_12V1P1.m**
+
+Los principales valores que se deben modificar son los siguientes:
+
+**Paths, names and time stamp info**
+
+| Variable | Descripción  | 
+| :------------: |:------------|
+| stationStr      | ''Aerielle” (Relacionado con los parámetros intrínsecos y calibración de la cámara, revisar función makeLCPP3.m )   |
+| dateVect     | Fecha del primer frame  [aaaa mm dd hh mm ss]    | 
+| dt | Espaciamiento temporal. Si su frecuencia de muestreo es de 2 [Hz], no cambiar        |  
+| dateVect     | Fecha del primer frame  [aaaa mm dd hh mm ss]    | 
+
+Ejemplo:
+
+```matlab
+inputs.stationStr = 'Aerielle';  
+inputs.dateVect = [2018 11 12 13 08 43];       % date/time of first frame
+inputs.dt = 0.5/(24*3600);           % delta t (s) converted to datenums
+inputs.frameFn = 'demoClip';            % root of frame names
+inputs.gcpFn = ['.\Outputs\refPOINT.mat'];   % File that contains the names and locations of all the possible GCPs 
+inputs.instsFn = ['./UAV-Processing-Toolbox-master/demoInstsFile'];            % instrument m-file location
+```
+
+**Geometry solution Inputs**
+
+Parametros extrínsecos de la cámara  $\rightarrow$  [xCam yCam zCam Azimuth Tilt Roll]
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| knownFlags  |  1  $\rightarrow$ si se conoce la variable |
+|       |  0 $\rightarrow$ si no se conoce la variable |
+| xyCam, zCamz azTilt, roll  |  si su valor es conocido se debe anotar, si no es conocido, este valor sirve como primer punto de iteración |
+
+Ejemplo:
+
+```matlab
+inputs.knownFlags = [0 0 0 0 0 0];
+inputs.xyCam = [ -107.4604 265.6772];
+inputs.zCam = 80;             % based on last data run                
+inputs.azTilt = [95 60] / 180*pi;          % first guess
+inputs.roll = 0 / 180*pi; 
+```
+**GCP Info**
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| gcpList |  Anotar el número de los puntos GCP que utilizará en el análisis, son los que se ven en el video |
+| nRefs |  Número de puntos virtuales que utilizará, son los que se distinguen fácilmente en la imagen. Pueden o no ser GCP. |
+
+Ejemplo:
+
+```matlab
+inputs.gcpList = [1 2 3];      % use these gcps for init beta soln
+inputs.nRefs = 3;                    % number of ref points for stabilization
+inputs.zRefs = 2;                    % assumed z level of ref points
+```
+
+**Processing Parameters**
+
+| Variable | Descripción  | 
+| :------------------: |:------------|
+| rectxy |  Grilla de rectificación en X e Y, [xmin dx xmax ymin dy ymax] |
+| rectz |  Nivel vertical para la rectificación (Generalmente es el nivel medio del mar).|
+
+Ejemplo:
+
+```matlab
+inputs.doImageProducts = 1;                    % usually 1.
+inputs.showFoundRefPoints = 0;                 % to display ref points as check
+inputs.showInputImages = 1;                    % display each input image as it is processed
+inputs.rectxy = [-50 0.5 400 -300 0.5 300];     % rectification specs
+inputs.rectz = 0;                              % rectification z-level
+```
