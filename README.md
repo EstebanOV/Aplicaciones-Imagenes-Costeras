@@ -183,6 +183,16 @@ Modifique el nombre del archivo de configuración de acuerdo con el nombre asign
 
 https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c0ffd452c3347aa4881b4d49cdbdf69b210a4a16/1-Rectificacion/D-RectImagenes-Part1.m#L14-L17
 
-Seleccione los GCP en la imagen. Es recomendable tener una foto de referencia que indique claramente donde está ubicado cada punto, tal como se muestra en la siguiente imagen:
+Seleccione los GCP en la imagen. Es recomendable tener una foto de referencia (como apoyo en una seguna pantalla por ejemplo) que indique claramente donde está ubicado cada punto, tal como se muestra en la siguiente imagen:
 
 ![](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/656d2c0b76168bf10eda1ac20f6b9256f4e42eed/1-Rectificacion/13v2.jpg)
+
+Elija los gcp virtuales. Estos tienen que ser puntos idealmente blancos o muy claros, con la idea de que se diferencien bastante de su entorno, suelen servir los techos de las casas.
+
+![](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/45b5be5e54fe93521b7cc06ec8edce67d724f02a/1-Rectificacion/Ingres_%20GCP_Virtuales.png)
+
+**Obs:** *No es necesario que se conozcan las coordenadas reales de estos puntos. Tampoco hay problema si existen puntos que cumplen tanto como GCP como GCP virtuales.*
+
+Una vez elegido el recuadro que encierra al GCP virtual, se debe fijar un umbral de intensidad. Debe asegurarse que este umbral sea tal, que la forma (limite) que define el GCP virtual no se altere durante el análisis de todos los frames.
+
+**Obs: ** *El valor de este umbral está entre los 180 y 220 normalamente.*
