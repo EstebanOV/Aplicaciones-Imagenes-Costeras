@@ -195,4 +195,4 @@ Elija los gcp virtuales. Estos tienen que ser puntos idealmente blancos o muy cl
 
 Una vez elegido el recuadro que encierra al GCP virtual, se debe fijar un umbral de intensidad. Debe asegurarse que este umbral sea tal, que la forma (limite) que define el GCP virtual no se altere durante el análisis de todos los frames.
 
-**Obs: ** *El valor de este umbral está entre los 180 y 220 normalamente.*
+**Obs:** *El valor de este umbral está entre los 180 y 220 normalamente.*
