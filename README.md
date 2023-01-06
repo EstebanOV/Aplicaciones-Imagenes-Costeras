@@ -196,3 +196,7 @@ Elija los gcp virtuales. Estos tienen que ser puntos idealmente blancos o muy cl
 Una vez elegido el recuadro que encierra al GCP virtual, se debe fijar un umbral de intensidad. Debe asegurarse que este umbral sea tal, que la forma (limite) que define el GCP virtual no se altere durante el análisis de todos los frames.
 
 **Obs:** *El valor de este umbral está entre los 180 y 220 normalamente.*
+
+### E-RectImagenes-Part2.m
+
+Este script [E-RectImagenes-Part2.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/26e0344d6fc7bdd50e92d18032631cd94c9b7262/1-Rectificacion/E-RectImagenes-Part2.m "E-RectImagenes-Part2.m")  rectifica todas las imágenes ubicadas en `Outputs/1-Frames` y las guarda en `Outputs/1-FramesRect` en dos formatos, como matriz de matlab .mat y comprimido en JPG .
