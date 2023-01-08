@@ -200,3 +200,41 @@ Una vez elegido el recuadro que encierra al GCP virtual, se debe fijar un umbral
 ### E-RectImagenes-Part2.m
 
 Este script [E-RectImagenes-Part2.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/26e0344d6fc7bdd50e92d18032631cd94c9b7262/1-Rectificacion/E-RectImagenes-Part2.m "E-RectImagenes-Part2.m")  rectifica todas las imágenes ubicadas en `Outputs/1-Frames` y las guarda en `Outputs/1-FramesRect` en dos formatos, como matriz de matlab .mat y comprimido en JPG .
+
+## 2 - Batimetría - cBathy
+
+Estos scripts corresponden a una aplicación o adaptación del algoritmo [cBathy-Toolbox](https://github.com/Coastal-Imaging-Research-Network/cBathy-Toolbox "cBathy-Toolbox")  del CIRN para obtener la batimetría del lugar estudiado.
+
+### A_CrearInstrumentoPixel
+Este script genera un instrumento pixel que consiste en una región rectangular discretizada  (con una resolución especfificada por el usuario) sobre la cual se van almacenando los pixeles rectificados y georeferenciados.
+
+Especifique resolución espacial de la grilla (se considera la misma resolución en las dos direcciones x e y) y el nombre con el que se guardará el instrumento:
+
+```matlab
+res = 5          %Resolucion [m]
+oname = ['15V3_' num2str(res) 'm'];
+```
+Luego escriba la direccion (carpeta) donde se encuentren las imágenes rectificadas. Deben ser en formato de matriz de matlab (.mat), en el caso de ser un formato distinto, realizar las modificaciones correspondientes.
+
+Además, ingresar la ubicación del archivo `DataFrames` generado en el proceso de rectificación de las imágenes.
+
+```matlab
+%Imagenes Rectificadas
+imageDirectory{1} =  'C:\Memoria2020\Resultados\Rectificados\15V3\MAT';
+
+%Info Imagenes Rectificadas
+
+DireccionDF = './Inputs/DataFrames_15V3';
+```
+Ingrese los límites de la grilla `xlim` y `ylim`
+
+```matlab
+pixInst(1).type = 'Grid';
+pixInst(1). dx  = res;
+pixInst(1). dy =res;
+pixInst(1). xlim = [80 400];
+pixInst(1). ylim = [-300 300];
+pixInst(1).z = {};
+```
+El instrumento quedará guardado en la carpeta `/Outputs/1-PixelInstruments/`
+
