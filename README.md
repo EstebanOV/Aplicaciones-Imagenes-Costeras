@@ -257,3 +257,28 @@ oname=['15V3_Archivo_cBathy-5m'];
 % OutPut Directory
 odir=['./Outputs/2-Archivos-cBathy/'];
 ```
+### C_EstimarBathy
+Este script ejecuta la caja de códigos cBathy-Toolbox para estimar batimetría.
+
+Primero seleccione el archivo de entrada:
+
+```matlab
+load('15V3_Archivo_cBathy-5m.mat')
+```
+Luego edite el archivo de configuración `argus02a`:
+
+```matlab
+edit argus02a
+```´
+
+En la siguiente tabla se muestra una breve descripción de los principales parámetros. Para mayor detalles consultar documentación en el repositorio de cBathy-Toolbox.
+
+| Parámetro | Descripción  | 
+| :------------------: |:------------|
+| dxm y dym |  Espaciamiento deseado para los puntos de análisis, espaciamiento de salida |
+| xyMinMax|  Mínimo y máximo de x e y|
+| MINDEPTH y MAXDEPTH|  Límites para la profundidad|
+| Lx y Ly|  Parámetros que definen la vecindad que se analiza por cada punto|
+| nKeep | N° de frecuencias que se consideran en el análisis (las que poseen mayor coherencia dentro de
+fB)|
+
