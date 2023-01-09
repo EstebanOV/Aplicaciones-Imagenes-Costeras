@@ -269,7 +269,7 @@ Luego edite el archivo de configuración `argus02a`:
 
 ```matlab
 edit argus02a
-```´
+```
 
 En la siguiente tabla se muestra una breve descripción de los principales parámetros. Para mayor detalles consultar documentación en el repositorio de cBathy-Toolbox.
 
@@ -279,6 +279,39 @@ En la siguiente tabla se muestra una breve descripción de los principales pará
 | xyMinMax|  Mínimo y máximo de x e y|
 | MINDEPTH y MAXDEPTH|  Límites para la profundidad|
 | Lx y Ly|  Parámetros que definen la vecindad que se analiza por cada punto|
-| nKeep | N° de frecuencias que se consideran en el análisis (las que poseen mayor coherencia dentro de
-fB)|
+| fB|  Rango de frecuencias de análisis.|
+| nKeep | N° de frecuencias que se consideran en el análisis (las que poseen mayor coherencia dentro de fB)|
+
+Ejemplo:
+
+```matlab
+%%% Site-specific Inputs
+
+params.stationStr = 'argus02a';
+                
+params.dxm = 10;  %4 %5                % analysis domain spacing in x
+params.dym = 10;  %8 %10               % analysis domain spacing in y
+params.xyMinMax = [80 400 -300 300];   % min, max of x, then y
+                                      % default to [] for cBathy to choose
+params.tideFunction = 'cBathyTide';   % tide level function for evel
+
+%%%%%%%   Power user settings from here down   %%%%%%%
+params.MINDEPTH = 0.25;             % for initialization and final QC
+params.minValsForBathyEst = 4;      % min num f-k pairs for bathy est.
+
+params.QTOL = 0.5;                  % reject skill below this in csm
+params.minLam = 10;                 % min normalized eigenvalue to proceed
+params.Lx = 3*params.dxm;           % tomographic domain smoothing
+params.Ly = 3*params.dym;           % 
+params.kappa0 = 2;                  % increase in smoothing at outer xm
+params.DECIMATE = 1;                % decimate pixels to reduce work load.
+params.maxNPix = 80;                % max num pixels per tile (decimate excess)
+
+% f-domain etc.
+params.fB = [1/18: 1/50: 1/4];		% frequencies for analysis (~40 dof)
+params.nKeep = 4;                   % number of frequencies to keep
+```
+
+Ejecute todas las secciones y al finalizar especificar nombre del archivo de salida.
+
 
