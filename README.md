@@ -205,7 +205,7 @@ Este script [E-RectImagenes-Part2.m](https://github.com/EstebanOV/Aplicaciones-I
 
 Estos scripts corresponden a una aplicación o adaptación del algoritmo [cBathy-Toolbox](https://github.com/Coastal-Imaging-Research-Network/cBathy-Toolbox "cBathy-Toolbox")  del CIRN para obtener la batimetría del lugar estudiado.
 
-### A_CrearInstrumentoPixel
+### A_CrearInstrumentoPixel.m
 Este script genera un instrumento pixel que consiste en una región rectangular discretizada  (con una resolución especfificada por el usuario) sobre la cual se van almacenando los pixeles rectificados y georeferenciados.
 
 Especifique resolución espacial de la grilla (se considera la misma resolución en las dos direcciones x e y) y el nombre con el que se guardará el instrumento:
@@ -238,7 +238,7 @@ pixInst(1).z = {};
 ```
 El instrumento quedará guardado en la carpeta `/Outputs/1-PixelInstruments/`
 
-### B_CreacionArchivoCbathy
+### B_CreacionArchivoCbathy.m
 Este script compatibiliza el formato y nomenclaturas de archivos para utilizar cBathy-Toolbox.
 
 Sólo debe ingresar la dirección de los archivos `DataFrames` y el `Instrumento Pixel` generado anteriormente.
@@ -257,7 +257,7 @@ oname=['15V3_Archivo_cBathy-5m'];
 % OutPut Directory
 odir=['./Outputs/2-Archivos-cBathy/'];
 ```
-### C_EstimarBathy
+### C_EstimarBathy.m
 Este script ejecuta la caja de códigos cBathy-Toolbox para estimar batimetría.
 
 Primero seleccione el archivo de entrada:
@@ -314,4 +314,7 @@ params.nKeep = 4;                   % number of frequencies to keep
 
 Ejecute todas las secciones y al finalizar especificar nombre del archivo de salida.
 
+### D_KalmanFiltering.m
+Este script permite suavizar y rellenar las estimaciones de batimetría a partir de estimaciones anteriores, utilizando un filtro de Kalman. 
 
+Se aconseja revisar documentación de cBathy-Toolbox para una correcta ejecución.
