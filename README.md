@@ -238,3 +238,22 @@ pixInst(1).z = {};
 ```
 El instrumento quedará guardado en la carpeta `/Outputs/1-PixelInstruments/`
 
+### B_CreacionArchivoCbathy
+Este script compatibiliza el formato y nomenclaturas de archivos para utilizar cBathy-Toolbox.
+
+Sólo debe ingresar la dirección de los archivos `DataFrames` y el `Instrumento Pixel` generado anteriormente.
+
+```matlab
+load('./Outputs/1-PixelInstruments/15V3_5m_pixInst.mat')
+load('./Inputs/DataFrames_15V3.mat')
+```
+**Obs:** Se considera por defecto un $$\Delta t $$ de 0.5 segundos.
+
+En la sección 3, especificar nombre del archivo generado: 
+```matlab
+% Output Name
+oname=['15V3_Archivo_cBathy-5m'];
+
+% OutPut Directory
+odir=['./Outputs/2-Archivos-cBathy/'];
+```
