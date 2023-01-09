@@ -247,7 +247,7 @@ Sólo debe ingresar la dirección de los archivos `DataFrames` y el `Instrumento
 load('./Outputs/1-PixelInstruments/15V3_5m_pixInst.mat')
 load('./Inputs/DataFrames_15V3.mat')
 ```
-**Obs:** Se considera por defecto un $$\Delta t $$ de 0.5 segundos.
+**Obs:** Se considera por defecto un $\Delta$ t de 0.5 segundos.
 
 En la sección 3, especificar nombre del archivo generado: 
 ```matlab
