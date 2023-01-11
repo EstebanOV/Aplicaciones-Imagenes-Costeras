@@ -348,6 +348,10 @@ Xlim=[70,370];
 Ylim=[-270,260];
 ```
 
+Además, para la creación de instrumentos a partir de imágenes rectificadas, debe especificar la dirección donde se encuentran las imágenes en formato .mat, y la ubicación del archivo `DataFrames` con la información de las imágenes en el script  [A_CreacionInstrumento.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/5fbdf9764821787608e8264bf845b4c93a0b4688/3-Corrientes/Toolbox-Corrientes/A_CreacionInstrumento.m "A_CreacionInstrumento.m"). Ejemplo:
+
+https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/5fbdf9764821787608e8264bf845b4c93a0b4688/3-Corrientes/Toolbox-Corrientes/A_CreacionInstrumento.m#L11-L16
+
 Posteriormente debe ejecutar el script [A_DemoCorrientes.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c44be5d18da9d52d4940f0f3b167f289088472f4/3-Corrientes/A_DemoCorrientes.m "A_DemoCorrientes.m")
 
 Todos los resultados quedarán guardados en la carpeta `Outputs`.
