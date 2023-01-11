@@ -14,7 +14,15 @@ El repositorio se encuentra organizado en 3 grupos:
 
 Cada uno de estos grupos de códigos se puede utilizar de forma independiente y adaptar a las condiciones requeridas.
 
-## 1- Rectificación
+<!-- TABLE OF CONTENTS -->
+## Indice
+- [1. Rectificación](#1-rectificacion)
+- [2. Batimetría cBathy](#2-batimetria_cbathy)
+- [3. Corrientes](#3-corrientes)
+
+
+<!-- ABOUT THE PROJECT -->
+## 1. Rectificacion
 Estos scripts de matlab corresponden a una modificación y adaptación del paquete de códigos del CIRN (Coastal Imaging Research Network). Este paquete se encuentra almacenado en el siguiente repositorio: [UAV-Processing-Toolbox](https://github.com/Coastal-Imaging-Research-Network/UAV-Processing-Toolbox "UAV-Processing-Toolbox").
 
 Previo al proceso de la ortorectificación, se deben tener en cuenta algunas recomendaciones en la grabación de imágenes en terreno. En el siguiente archivo se resumen algunos puntos a tener en cuenta: 
@@ -201,7 +209,7 @@ Una vez elegido el recuadro que encierra al GCP virtual, se debe fijar un umbral
 
 Este script [E-RectImagenes-Part2.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/26e0344d6fc7bdd50e92d18032631cd94c9b7262/1-Rectificacion/E-RectImagenes-Part2.m "E-RectImagenes-Part2.m")  rectifica todas las imágenes ubicadas en `Outputs/1-Frames` y las guarda en `Outputs/1-FramesRect` en dos formatos, como matriz de matlab .mat y comprimido en JPG .
 
-## 2 - Batimetría - cBathy
+## 2. Batimetria_cBathy
 
 Estos scripts corresponden a una aplicación o adaptación del algoritmo [cBathy-Toolbox](https://github.com/Coastal-Imaging-Research-Network/cBathy-Toolbox "cBathy-Toolbox")  del CIRN para obtener la batimetría del lugar estudiado.
 
@@ -319,7 +327,7 @@ Este script permite suavizar y rellenar las estimaciones de batimetría a partir
 
 Se aconseja revisar documentación de cBathy-Toolbox para una correcta ejecución.
 
-## 3-Corrientes
+## 3. Corrientes
 Estos scripts permiten obtener las corrientes medias longitudinales y transversales en la zona de la rompiente.
 
 Para la obtención de las corrientes longitudinales se utiliza el código creado por Chris Chickadel denominado [Video-Currents-Toolbox](https://github.com/Coastal-Imaging-Research-Network/Video-Currents-Toolbox "Video-Currents-Toolbox") disponible en el repositorio del CIRN.
