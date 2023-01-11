@@ -318,3 +318,37 @@ Ejecute todas las secciones y al finalizar especificar nombre del archivo de sal
 Este script permite suavizar y rellenar las estimaciones de batimetría a partir de estimaciones anteriores, utilizando un filtro de Kalman. 
 
 Se aconseja revisar documentación de cBathy-Toolbox para una correcta ejecución.
+
+## 3-Corrientes
+Estos scripts permiten obtener las corrientes medias longitudinales y transversales en la zona de la rompiente.
+
+Para la obtención de las corrientes longitudinales se utiliza el código creado por Chris Chickadel denominado [Video-Currents-Toolbox](https://github.com/Coastal-Imaging-Research-Network/Video-Currents-Toolbox "Video-Currents-Toolbox") disponible en el repositorio del CIRN.
+
+Para la obtención de las velocidades en dirección transversal a la línea de costa, se aplica una continuidad de flujos, lo que implica necesariamente disponer de la batimetría (es un valor de entrada necesario).
+
+Los parámetros principales de los algoritmos implementados se deben modificar en el script [Configuracion.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c44be5d18da9d52d4940f0f3b167f289088472f4/3-Corrientes/Configuracion.m "Configuracion.m").
+
+Ejemplo:
+
+```matlab
+NameV = '15V3'; %Vuelo a analizar
+
+%Parámetros
+dy = 10 ;  %[m] Longitud de los instrumentos vBar
+dx = 10 ;  %[m] Separación instrumentos en dirección x
+Tw = 32 ;  %[s] Duración ventana de análisis
+Ts = 16 ;  %[s] Tiempo de muestreo
+km = 0.25; %[1/m] Número de onda mínimo
+P  = 0.9 ; %Límite para el nivel de confianza de ajuste al modelo
+Lci= 0.2 ; %[m/s] Umbral para el intervalo de confianza de la velocidad media
+Ir = 40  ; %Umbral para el rango de intensidad
+
+%Límites grilla
+Xlim=[70,370];
+Ylim=[-270,260];
+```
+
+Posteriormente debe ejecutar el script [A_DemoCorrientes.m](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/c44be5d18da9d52d4940f0f3b167f289088472f4/3-Corrientes/A_DemoCorrientes.m "A_DemoCorrientes.m")
+
+Todos los resultados quedarán guardados en la carpeta `Outputs`.
+
