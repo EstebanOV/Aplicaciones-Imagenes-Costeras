@@ -1,4 +1,7 @@
 # Aplicaciones Imágenes Costeras 
+
+![](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/main/Portada-Banner.jpg)
+
 Este repositorio contiene los códigos utilizados para la obtención del campo de velocidades medias en la zona de la rompiente a partir de imágenes grabadas desde un dron. 
 
 Estos códigos fueron generados como parte de mi trabajo de memoria para optar el título de Ingeniero Civil, y se enmarca dentro del proyecto *"FONDECYT 1170415-Quantification of Two Dimensional Wave Breaking Dissipation in the Surf Zone"* liderado por el profesor Patricio Catalán del Departamento de Ingeniería Civil de la Universidad Técnica Federico Santa María.
