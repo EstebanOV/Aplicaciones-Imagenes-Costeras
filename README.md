@@ -19,6 +19,8 @@ Cada uno de estos grupos de códigos se puede utilizar de forma independiente y 
 - [1. Rectificación](#1-rectificacion)
 - [2. Batimetría cBathy](#2-batimetria_cbathy)
 - [3. Corrientes](#3-corrientes)
+- [4. Documentación](#4-documentacion)
+- [5. Contacto](#5-contacto)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -364,3 +366,19 @@ Posteriormente debe ejecutar el script [A_DemoCorrientes.m](https://github.com/E
 
 Todos los resultados quedarán guardados en la carpeta `Outputs`.
 
+## 4. Documentacion
+La base teórica de los algoritmos, así como su aplicación a una playa ubicada en la zona central de Chile (Playa Las Cruces) se encuentra explicada en mi memoria:
+
+- [Determinación de campos de velocidades en la zona de la rompiente desde drones - Esteban Opazo Verdugo](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/852a275e61784a37778b0f2de36781110a8ebe9a/Determinacion%20de%20Velocidades%20-%20Memoria%20Esteban%20Opazo.pdf "Determinación de campos de velocidades en la zona de la rompiente desde drones - Esteban Opazo Verdugo")
+
+Además comparto unos apuntes que escribí con una explicación más detallada de los algoritmos de rectificación, incluyendo cbathy y la obtención de velocidades:
+
+- [Apuntes Rectificación de Imágenes](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/852a275e61784a37778b0f2de36781110a8ebe9a/Apuntes%20Rectificacion%20de%20Imagenes%20-%20EOV.pdf "Apuntes Rectificación de Imágenes")
+
+Otros:
+
+- [Guía rápida - Rectificación de imágenes](https://github.com/EstebanOV/Aplicaciones-Imagenes-Costeras/blob/534b992e53cd3672b9da5c059dffd823398dc7c1/Guia%20Rapida-Rectificacion%20de%20Imagenes.pdf "Guía rápida - Rectificación de imágenes") (Versión desactualizada)
+
+## 5. Contacto
+
+Mail: esteban.opazo.13@sansano.usm.cl
